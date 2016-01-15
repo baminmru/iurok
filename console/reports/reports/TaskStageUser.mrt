@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer type="Flex" version="1.02" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <Databases count="1" isList="true">
+      <iurok_cn Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" isKey="true">
+        <Alias>iurok_cn</Alias>
+        <ConnectionStringEncrypted>w2zRa0VccZniWqWYZFxiP4vIZSjGV5uZ4Uf9+EoAYmeGxNnpZkhzvGtJqORNROFewlZlyw==</ConnectionStringEncrypted>
+        <Name>iurok_cn</Name>
+      </iurok_cn>
+    </Databases>
+    <DataSources count="1" isList="true">
+      <TaskCount Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource" isKey="true">
+        <Alias>TaskCount</Alias>
+        <Columns count="15" isList="true">
+          <value>lastname,System.String</value>
+          <value>name,System.String</value>
+          <value>surname,System.String</value>
+          <value>role,System.String</value>
+          <value>createdate,System.DateTime</value>
+          <value>planenddate,System.DateTime</value>
+          <value>finishdate,System.DateTime</value>
+          <value>taskfinished,System.Int32</value>
+          <value>taskcancelled,System.Int32</value>
+          <value>isdelegated,System.Int32</value>
+          <value>process,System.String</value>
+          <value>stage,System.String</value>
+          <value>substage,System.String</value>
+          <value>sequence,System.Int32</value>
+          <value>task,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>TaskCount</Name>
+        <NameInSource>iurok_cn</NameInSource>
+        <Parameters count="0" isList="true"/>
+        <SqlCommand>select * from v_rpttasks where usrid like '%{usr}%' and  createdate&gt;=str_to_date('{dfrom}','%Y-%m-%d %H:%i:%s') and createdate&lt;=str_to_date('{dto}','%Y-%m-%d %H:%i:%s')</SqlCommand>
+      </TaskCount>
+    </DataSources>
+    <Relations count="0" isList="true"/>
+    <Report isRef="0"/>
+    <Variables count="4" isList="true">
+      <value>,p1,p1,System.String,,False,False</value>
+      <value>,dfrom,dfrom,System.String,,False,False</value>
+      <value>,dto,dto,System.String,,False,False</value>
+      <value>,usr,usr,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings count="0" isList="true"/>
+  <MetaTags count="0" isList="true"/>
+  <Pages count="1" isList="true">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components count="1" isList="true">
+        <ReportTitleBand1 Ref="5" type="ReportTitleBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,2.8</ClientRectangle>
+          <Components count="3" isList="true">
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.2,27.4,1</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,16</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>Отчет о полученных задачах в разрезе  исполнителей и подэтапов</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text2 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,1.4,27.2,1</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{p1}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <CrossTab1 Ref="8" type="Stimulsoft.Report.CrossTab.StiCrossTab" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,2.6,27.2,5.2</ClientRectangle>
+              <Components count="14" isList="true">
+                <CrossTab1_ColTotal1 Ref="9" type="CrossColumnTotal" isKey="true">
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>[194:255:194]</Brush>
+                  <ClientRectangle>5.65,0.65,1.2,0.6</ClientRectangle>
+                  <Conditions count="0" isList="true"/>
+                  <Font>Arial,10</Font>
+                  <Guid>6fc6d403a97837cebd9c8757b6057084</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_ColTotal1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Итого</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </CrossTab1_ColTotal1>
+                <CrossTab1_RowTotal1 Ref="10" type="CrossRowTotal" isKey="true">
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>[194:255:194]</Brush>
+                  <ClientRectangle>0,3.1,4,0.6</ClientRectangle>
+                  <Conditions count="0" isList="true"/>
+                  <Font>Arial,10</Font>
+                  <Guid>44d4c9f64824f8621fbf8757dd5c365e</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_RowTotal1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Всего</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </CrossTab1_RowTotal1>
+                <CrossTab1_Row1_Title Ref="11" type="CrossTitle" isKey="true">
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>LightGreen</Brush>
+                  <ClientRectangle>0,0.65,1.4,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>1eabe2529f8630019c868757dd5d6730</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row1_Title</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Процесс</Text>
+                  <TextBrush>[0:88:0]</TextBrush>
+                  <TypeOfComponent>Row:CrossTab1_Row1</TypeOfComponent>
+                </CrossTab1_Row1_Title>
+                <CrossTab1_RowTotal2 Ref="12" type="CrossRowTotal" isKey="true">
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>[194:255:194]</Brush>
+                  <ClientRectangle>1.4,2.5,2.6,0.6</ClientRectangle>
+                  <Conditions count="0" isList="true"/>
+                  <Font>Arial,10</Font>
+                  <Guid>38ce8520c18c3aacfb6d8757e64d92b3</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_RowTotal2</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Итого по процессу</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </CrossTab1_RowTotal2>
+                <CrossTab1_Row2_Title Ref="13" type="CrossTitle" isKey="true">
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>LightGreen</Brush>
+                  <ClientRectangle>1.4,0.65,1,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>95c65b31e8d84db89fdd8757e64e50cd</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row2_Title</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Этап</Text>
+                  <TextBrush>[0:88:0]</TextBrush>
+                  <TypeOfComponent>Row:CrossTab1_Row2</TypeOfComponent>
+                </CrossTab1_Row2_Title>
+                <CrossTab1_RowTotal3 Ref="14" type="CrossRowTotal" isKey="true">
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>[194:255:194]</Brush>
+                  <ClientRectangle>2.4,1.9,1.6,0.6</ClientRectangle>
+                  <Conditions count="0" isList="true"/>
+                  <Font>Arial,10</Font>
+                  <Guid>f4381ab012789e02ecf98757ed947fd5</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_RowTotal3</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Итого по этапу</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </CrossTab1_RowTotal3>
+                <CrossTab1_Row3_Title Ref="15" type="CrossTitle" isKey="true">
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>LightGreen</Brush>
+                  <ClientRectangle>2.4,0.65,1.6,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>02616d6cfc7c8e0a618a8757ed95b0a8</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row3_Title</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Подэтап</Text>
+                  <TextBrush>[0:88:0]</TextBrush>
+                  <TypeOfComponent>Row:CrossTab1_Row3</TypeOfComponent>
+                </CrossTab1_Row3_Title>
+                <CrossTab1_Row1 Ref="16" type="CrossRow" isKey="true">
+                  <Alias>process</Alias>
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>LightGreen</Brush>
+                  <ClientRectangle>0,1.3,1.4,1.8</ClientRectangle>
+                  <Conditions count="0" isList="true"/>
+                  <DisplayValue>{TaskCount.process}</DisplayValue>
+                  <Font>Arial,8</Font>
+                  <Guid>a670985d9e0a8ed4ad068757dd57ccdf</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>process</Text>
+                  <TextBrush>[0:88:0]</TextBrush>
+                  <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+                  <TotalGuid>44d4c9f64824f8621fbf8757dd5c365e</TotalGuid>
+                  <Value>{TaskCount.process}</Value>
+                </CrossTab1_Row1>
+                <CrossTab1_Row2 Ref="17" type="CrossRow" isKey="true">
+                  <Alias>stage</Alias>
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>LightGreen</Brush>
+                  <ClientRectangle>1.4,1.3,1,1.2</ClientRectangle>
+                  <Conditions count="0" isList="true"/>
+                  <DisplayValue>{TaskCount.stage}</DisplayValue>
+                  <Font>Arial,8</Font>
+                  <Guid>4bc6ee72c33768ab918c8757e6475087</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row2</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>stage</Text>
+                  <TextBrush>[0:88:0]</TextBrush>
+                  <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+                  <TotalGuid>38ce8520c18c3aacfb6d8757e64d92b3</TotalGuid>
+                  <Value>{TaskCount.stage}</Value>
+                </CrossTab1_Row2>
+                <CrossTab1_Row3 Ref="18" type="CrossRow" isKey="true">
+                  <Alias>substage</Alias>
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>LightGreen</Brush>
+                  <ClientRectangle>2.4,1.3,1.6,0.6</ClientRectangle>
+                  <Conditions count="0" isList="true"/>
+                  <DisplayValue>{TaskCount.substage}</DisplayValue>
+                  <Font>Arial,8</Font>
+                  <Guid>70b875b8c05b70b61db78757ed8f8831</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row3</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>substage</Text>
+                  <TextBrush>[0:88:0]</TextBrush>
+                  <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+                  <TotalGuid>f4381ab012789e02ecf98757ed947fd5</TotalGuid>
+                  <Value>{TaskCount.substage}</Value>
+                </CrossTab1_Row3>
+                <CrossTab1_Column1 Ref="19" type="CrossColumn" isKey="true">
+                  <Alias>lastname</Alias>
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>LightGreen</Brush>
+                  <ClientRectangle>4.05,0.65,1.6,0.6</ClientRectangle>
+                  <Conditions count="0" isList="true"/>
+                  <DisplayValue>{TaskCount.lastname}</DisplayValue>
+                  <Font>Arial,10</Font>
+                  <Guid>6a53a0056d5786729ffe8757b5f9a443</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Column1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>lastname</Text>
+                  <TextBrush>[0:88:0]</TextBrush>
+                  <TotalGuid>6fc6d403a97837cebd9c8757b6057084</TotalGuid>
+                  <Value>{TaskCount.lastname}</Value>
+                </CrossTab1_Column1>
+                <CrossTab1_Sum1 Ref="20" type="CrossSummary" isKey="true">
+                  <Alias>task</Alias>
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>[255:255:255]</Brush>
+                  <ClientRectangle>4.05,1.3,1.6,0.6</ClientRectangle>
+                  <Conditions count="0" isList="true"/>
+                  <Font>Arial,10</Font>
+                  <Guid>ced43ca9aa70d9ea5b46875b6056be7c</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Sum1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Summary>Count</Summary>
+				  <SummaryValues>SkipNulls</SummaryValues>
+                  <Text>0</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Value>{Count()}</Value>
+                </CrossTab1_Sum1>
+                <CrossTab1_LeftTitle Ref="21" type="CrossTitle" isKey="true">
+                  <Border>All;[44:138:44];1;Solid;False;4;Black</Border>
+                  <Brush>LightGreen</Brush>
+                  <ClientRectangle>0,0,4,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>8b46e7892b3fbce1e2468757dd5d3e05</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_LeftTitle</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Кол-во задач</Text>
+                  <TextBrush>[0:88:0]</TextBrush>
+                  <TypeOfComponent>LeftTitle</TypeOfComponent>
+                </CrossTab1_LeftTitle>
+                <CrossTab1_RightTitle Ref="22" type="CrossTitle" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>4.05,0,2.8,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>8e02c6f796dcc5b11076875b60595385</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_RightTitle</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Исполнитель</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <TypeOfComponent>RightTitle</TypeOfComponent>
+                </CrossTab1_RightTitle>
+              </Components>
+              <Conditions count="0" isList="true"/>
+              <DataRelationName/>
+              <DataSourceName>TaskCount</DataSourceName>
+              <EmptyValue/>
+              <Filters count="0" isList="true"/>
+              <Name>CrossTab1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Sort count="0" isList="true"/>
+            </CrossTab1>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </ReportTitleBand1>
+      </Components>
+      <Conditions count="0" isList="true"/>
+      <Guid>bd5185c04fbd7ab31a3f8757146d8300</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0"/>
+      <Watermark Ref="23" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="24" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true"/>
+  <ReportAlias>Отчет</ReportAlias>
+  <ReportChanged>07/30/2014 07:15:35 PM</ReportChanged>
+  <ReportCreated>07/30/2014 04:55:36 PM</ReportCreated>
+  <ReportFile>C:\bami\Projects\iUROK\WEB\console\reports\reports\TaskStageUser.mrt</ReportFile>
+  <ReportGuid>0259972997e9dba48b2c87d73cdfa962</ReportGuid>
+  <ReportName>Отчет</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2014.1.1900</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles count="0" isList="true"/>
+</StiSerializer>

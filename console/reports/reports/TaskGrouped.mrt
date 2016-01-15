@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" application="StiReport" type="Flex">
+  <Dictionary isKey="true" Ref="1" type="Dictionary">
+    <Databases isList="true" count="1">
+      <iurok_cn isKey="true" Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase">
+        <Alias>iurok_cn</Alias>
+        <ConnectionStringEncrypted>w2zRa0VccZniWqWYZFxiP4vIZSjGV5uZ4Uf9+EoAYmeGxNnpZkhzvGtJqORNROFewlZlyw==</ConnectionStringEncrypted>
+        <Name>iurok_cn</Name>
+      </iurok_cn>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <TaskCount isKey="true" Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource">
+        <Alias>TaskCount</Alias>
+        <Columns isList="true" count="15">
+          <value>lastname,System.String</value>
+          <value>name,System.String</value>
+          <value>surname,System.String</value>
+          <value>role,System.String</value>
+          <value>createdate,System.DateTime</value>
+          <value>planenddate,System.DateTime</value>
+          <value>finishdate,System.DateTime</value>
+          <value>taskfinished,System.Int32</value>
+          <value>taskcancelled,System.Int32</value>
+          <value>isdelegated,System.Int32</value>
+          <value>process,System.String</value>
+          <value>stage,System.String</value>
+          <value>substage,System.String</value>
+          <value>sequence,System.Int32</value>
+          <value>task,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>TaskCount</Name>
+        <NameInSource>iurok_cn</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>select * from v_rpttasks where usrid like '%{usr}%' and createdate&gt;=str_to_date('{dfrom}','%Y-%m-%d %H:%i:%s') and createdate&lt;=str_to_date('{dto}','%Y-%m-%d %H:%i:%s')</SqlCommand>
+      </TaskCount>
+    </DataSources>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="4">
+      <value>,p1,p1,System.String,,False,False</value>
+      <value>,dfrom,dfrom,System.String,,False,False</value>
+      <value>,dto,dto,System.String,,False,False</value>
+      <value>,usr,usr,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="1">
+    <Page1 isKey="true" Ref="4" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="15">
+        <ReportTitleBand1 isKey="true" Ref="5" type="ReportTitleBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2.6</ClientRectangle>
+          <Components isList="true" count="15">
+            <Text1 isKey="true" Ref="6" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,14</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>Количество полученных задач по этапам</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text3 isKey="true" Ref="7" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.8,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{p1}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text5 isKey="true" Ref="8" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.6,5,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>Процесс</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text21 isKey="true" Ref="9" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.4,1.6,3.6,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>Этап</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text23 isKey="true" Ref="10" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,1.6,4.2,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>Подэтап</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text23>
+            <Text24 isKey="true" Ref="11" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,1.6,3.6,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>Задача</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
+            <StartPointPrimitive1 isKey="true" Ref="12" type="Stimulsoft.Report.Components.StiStartPointPrimitive">
+              <ClientRectangle>0,1.6,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>StartPointPrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <ReferenceToGuid>704104d595b3828f4457a6d56b524cd2</ReferenceToGuid>
+            </StartPointPrimitive1>
+            <EndPointPrimitive1 isKey="true" Ref="13" type="Stimulsoft.Report.Components.StiEndPointPrimitive">
+              <ClientRectangle>19,2.6,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>EndPointPrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <ReferenceToGuid>704104d595b3828f4457a6d56b524cd2</ReferenceToGuid>
+            </EndPointPrimitive1>
+            <HorizontalLinePrimitive3 isKey="true" Ref="14" type="HorizontalLinePrimitive">
+              <ClientRectangle>5.2,1.6,0.6,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions isList="true" count="0"/>
+              <EndCap isKey="true" Ref="15" type="Cap">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <StartCap isKey="true" Ref="16" type="Cap">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive3>
+            <StartPointPrimitive2 isKey="true" Ref="17" type="Stimulsoft.Report.Components.StiStartPointPrimitive">
+              <ClientRectangle>5.2,1.6,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>StartPointPrimitive2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <ReferenceToGuid>ebed842f290f9a83b3c1a6d603bf5901</ReferenceToGuid>
+            </StartPointPrimitive2>
+            <EndPointPrimitive2 isKey="true" Ref="18" type="Stimulsoft.Report.Components.StiEndPointPrimitive">
+              <ClientRectangle>5.23,2.6,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>EndPointPrimitive2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <ReferenceToGuid>ebed842f290f9a83b3c1a6d603bf5901</ReferenceToGuid>
+            </EndPointPrimitive2>
+            <StartPointPrimitive3 isKey="true" Ref="19" type="Stimulsoft.Report.Components.StiStartPointPrimitive">
+              <ClientRectangle>9.2,1.6,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>StartPointPrimitive3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <ReferenceToGuid>5db6876dda3742aae801a6d637be9b53</ReferenceToGuid>
+            </StartPointPrimitive3>
+            <EndPointPrimitive3 isKey="true" Ref="20" type="Stimulsoft.Report.Components.StiEndPointPrimitive">
+              <ClientRectangle>9.23,2.6,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>EndPointPrimitive3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <ReferenceToGuid>5db6876dda3742aae801a6d637be9b53</ReferenceToGuid>
+            </EndPointPrimitive3>
+            <StartPointPrimitive4 isKey="true" Ref="21" type="Stimulsoft.Report.Components.StiStartPointPrimitive">
+              <ClientRectangle>13.6,1.6,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>StartPointPrimitive4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <ReferenceToGuid>d89968bbba8db74847d1a6d7d8ece344</ReferenceToGuid>
+            </StartPointPrimitive4>
+            <EndPointPrimitive4 isKey="true" Ref="22" type="Stimulsoft.Report.Components.StiEndPointPrimitive">
+              <ClientRectangle>13.63,2.4,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>EndPointPrimitive4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <ReferenceToGuid>d89968bbba8db74847d1a6d7d8ece344</ReferenceToGuid>
+            </EndPointPrimitive4>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </ReportTitleBand1>
+        <GroupHeaderBand4 isKey="true" Ref="23" type="GroupHeaderBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.8,19,0</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Condition>{TaskCount.process}</Condition>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupHeaderBand4</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupHeaderBand4>
+        <GroupHeaderBand3 isKey="true" Ref="24" type="GroupHeaderBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4.6,19,0</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Condition>{TaskCount.process}+{TaskCount.stage}</Condition>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupHeaderBand3</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupHeaderBand3>
+        <GroupHeaderBand2 isKey="true" Ref="25" type="GroupHeaderBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.4,19,0</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Condition>{TaskCount.process}+{TaskCount.stage}+{TaskCount.substage}</Condition>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupHeaderBand2</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupHeaderBand2>
+        <GroupHeaderBand1 isKey="true" Ref="26" type="GroupHeaderBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6.2,19,0</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Condition>{TaskCount.process}+{TaskCount.stage}+{TaskCount.substage}+{TaskCount.task}</Condition>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupHeaderBand1>
+        <DataBand1 isKey="true" Ref="27" type="DataBand">
+          <Brush>Transparent</Brush>
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,7,19,1.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text2 isKey="true" Ref="28" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0.2,0,4.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="27"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.process}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+            </Text2>
+            <Text4 isKey="true" Ref="29" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.6,0,3.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="27"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.stage}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+            </Text4>
+            <Text6 isKey="true" Ref="30" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0,4.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4"/>
+              <Parent isRef="27"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.substage}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+            </Text6>
+            <Text7 isKey="true" Ref="31" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14.2,0,4.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4"/>
+              <Parent isRef="27"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.task}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+            </Text7>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <DataSourceName>TaskCount</DataSourceName>
+          <Enabled>False</Enabled>
+           <Filters isList="true" count="0"/>
+          <Name>DataBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Sort isList="true" count="0"/>
+        </DataBand1>
+        <GroupFooterBand1 isKey="true" Ref="32" type="GroupFooterBand">
+          <Brush>EmptyBrush</Brush>
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,9.6,19,1.2</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text9 isKey="true" Ref="33" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>17.4,0,1.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4"/>
+              <Parent isRef="32"/>
+              <Text>{Count(DataBand1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text12 isKey="true" Ref="34" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,5.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>e44372df5fe72346e3b3871e4796f508</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="4"/>
+              <Parent isRef="32"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.process}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text8 isKey="true" Ref="35" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.4,0,3.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>6e626e87de66c7799372871e4796904f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4"/>
+              <Parent isRef="32"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.stage}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text10 isKey="true" Ref="36" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.4,0,4.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>54bfa189e769b117045c871e4796c4ea</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4"/>
+              <Parent isRef="32"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.substage}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text17 isKey="true" Ref="37" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.8,0,3.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>ecf9c31a1364f8c5969f872df2ee0fb6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="4"/>
+              <Parent isRef="32"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.task}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupFooterBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupFooterBand1>
+        <GroupFooterBand2 isKey="true" Ref="38" type="GroupFooterBand">
+          <Brush>EmptyBrush</Brush>
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,11.6,19,1.4</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text15 isKey="true" Ref="39" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>13.8,0.2,3,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Guid>a80894413a9eead3d9758724ab35254c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4"/>
+              <Parent isRef="38"/>
+              <Text>{Count(DataBand1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text11 isKey="true" Ref="40" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.2,5.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>ac68c472335da76350268724ab352446</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4"/>
+              <Parent isRef="38"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.process}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text13 isKey="true" Ref="41" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.4,0.2,3.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>09b68990cf48f72fcec48724ab35520f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4"/>
+              <Parent isRef="38"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.stage}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text16 isKey="true" Ref="42" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.2,0.2,4.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>b3562cf84a42b3183256872da1aa27d2</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="4"/>
+              <Parent isRef="38"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.substage}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <HorizontalLinePrimitive4 isKey="true" Ref="43" type="HorizontalLinePrimitive">
+              <ClientRectangle>0,0,19,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions isList="true" count="0"/>
+              <EndCap isKey="true" Ref="44" type="Cap">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="38"/>
+              <StartCap isKey="true" Ref="45" type="Cap">
+                <Color>Black</Color>
+              </StartCap>
+              <Style>Dot</Style>
+            </HorizontalLinePrimitive4>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupFooterBand2</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupFooterBand2>
+        <GroupFooterBand3 isKey="true" Ref="46" type="GroupFooterBand">
+          <Brush>EmptyBrush</Brush>
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,13.8,19,1.6</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text14 isKey="true" Ref="47" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.4,5.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>eb1aa73591e54c93b199872f5f563bdd</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="4"/>
+              <Parent isRef="46"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.process}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text18 isKey="true" Ref="48" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.4,0.4,3.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>c37466382ef9ff7e7907872f5f5639db</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="4"/>
+              <Parent isRef="46"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.stage}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text20 isKey="true" Ref="49" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>9.2,0.4,3.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Guid>48c264f60d3b42e9da63872f5f5653d6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="4"/>
+              <Parent isRef="46"/>
+              <Text>{Count(DataBand1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <HorizontalLinePrimitive2 isKey="true" Ref="50" type="HorizontalLinePrimitive">
+              <ClientRectangle>0,0.2,19,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions isList="true" count="0"/>
+              <EndCap isKey="true" Ref="51" type="Cap">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="46"/>
+              <StartCap isKey="true" Ref="52" type="Cap">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive2>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupFooterBand3</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupFooterBand3>
+        <GroupFooterBand4 isKey="true" Ref="53" type="GroupFooterBand">
+          <Brush>EmptyBrush</Brush>
+          <ClientRectangle>0,16.2,19,2.8</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text22 isKey="true" Ref="54" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.4,5.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>a3e54bf2a17252f40b5287356b812140</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="4"/>
+              <Parent isRef="53"/>
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{TaskCount.process}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text19 isKey="true" Ref="55" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>5.4,0.4,3.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Guid>ad4f2f5ff09e66a7833e87356b81a91a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="4"/>
+              <Parent isRef="53"/>
+              <Text>{Count(DataBand1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <HorizontalLinePrimitive1 isKey="true" Ref="56" type="HorizontalLinePrimitive">
+              <ClientRectangle>0,0.2,19,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions isList="true" count="0"/>
+              <EndCap isKey="true" Ref="57" type="Cap">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="53"/>
+              <StartCap isKey="true" Ref="58" type="Cap">
+                <Color>Black</Color>
+              </StartCap>
+              <Style>Double</Style>
+            </HorizontalLinePrimitive1>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupFooterBand4</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupFooterBand4>
+        <ReportSummaryBand1 isKey="true" Ref="59" type="ReportSummaryBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,19.8,19,1.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text26 isKey="true" Ref="60" type="Text">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>5.4,0.2,3.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Guid>a3599130fc16d7167e8fa6d964fc6f0d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="4"/>
+              <Parent isRef="59"/>
+              <Text>{Count(DataBand1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text25 isKey="true" Ref="61" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,4.8,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="4"/>
+              <Parent isRef="59"/>
+              <Text>Всего</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportSummaryBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </ReportSummaryBand1>
+        <RectanglePrimitive1 isKey="true" Ref="62" type="RectanglePrimitive">
+          <ClientRectangle>0,2,19,1</ClientRectangle>
+          <Color>Black</Color>
+          <Conditions isList="true" count="0"/>
+          <Guid>704104d595b3828f4457a6d56b524cd2</Guid>
+          <Name>RectanglePrimitive1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </RectanglePrimitive1>
+        <VerticalLinePrimitive1 isKey="true" Ref="63" type="VerticalLinePrimitive">
+          <ClientRectangle>5.2,2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <Conditions isList="true" count="0"/>
+          <EndCap isKey="true" Ref="64" type="Cap">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>ebed842f290f9a83b3c1a6d603bf5901</Guid>
+          <Name>VerticalLinePrimitive1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <StartCap isKey="true" Ref="65" type="Cap">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive1>
+        <VerticalLinePrimitive2 isKey="true" Ref="66" type="VerticalLinePrimitive">
+          <ClientRectangle>9.2,2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <Conditions isList="true" count="0"/>
+          <EndCap isKey="true" Ref="67" type="Cap">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>5db6876dda3742aae801a6d637be9b53</Guid>
+          <Name>VerticalLinePrimitive2</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <StartCap isKey="true" Ref="68" type="Cap">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive2>
+        <VerticalLinePrimitive3 isKey="true" Ref="69" type="VerticalLinePrimitive">
+          <ClientRectangle>13.6,2,0.0254,0.8</ClientRectangle>
+          <Color>Black</Color>
+          <Conditions isList="true" count="0"/>
+          <EndCap isKey="true" Ref="70" type="Cap">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>d89968bbba8db74847d1a6d7d8ece344</Guid>
+          <Name>VerticalLinePrimitive3</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <StartCap isKey="true" Ref="71" type="Cap">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive3>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>fc4063161e00f1ab1ac986cc2a389d41</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="72" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings isKey="true" Ref="73" type="Stimulsoft.Report.Print.StiPrinterSettings"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>08/06/2014 12:39:24 PM</ReportChanged>
+  <ReportCreated>07/30/2014 02:23:52 PM</ReportCreated>
+  <ReportFile>C:\bami\Projects\iUROK\WEB\console\reports\reports\TaskGrouped.mrt</ReportFile>
+  <ReportGuid>23328a5e2237518aa1c4aa7908eb7d82</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2014.1.1900</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>

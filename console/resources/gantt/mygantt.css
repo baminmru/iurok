@@ -1,0 +1,9 @@
+.gant_myrow_finished {	background:#7FFF00; color:#7FFF00; border:2px solid #7FFF00;}
+.gant_myrow_cancelled {	background:#FA5858; color:#FA5858; border:2px solid #FA5858;}
+.gant_myrow_progress{	background:#F2F5A9; color:#F2F5A9; border:2px solid #F2F5A9;}
+.gant_myrow_finished_bad {	background:#819FF7; color:#819FF7; border:2px solid #819FF7;}
+
+.gant_myrow_finished   .gantt_task_progress  {	background:#298A08;}
+.gant_myrow_cancelled .gantt_task_progress {	background:#FA5858;}
+.gant_myrow_progress   .gantt_task_progress  {	background:#FFD700;}
+.gant_myrow_finished_bad   .gantt_task_progress  {	background:#819FF7;}

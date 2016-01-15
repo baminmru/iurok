@@ -1,0 +1,18 @@
+.x-item-readonly .x-form-item-label {background:#ffffff;color:#666666;}
+.x-item-readonly .x-form-field {background:#dddddd;color:#000000; }
+.x-item-readonly .x-form-cb-label{background:#ffffff;color:#666666;}
+.x-ie6 .x-item-readonly{filter:none;background:#dddddd;color:#000000;}
+.x-item-mandatory  {color:#000000; font-size: 100%; border-color:red;}
+.x-item-mandatory  .x-form-field { border-color:red;}
+.grid-header-90deg .x-column-header-text {
+-webkit-transform: rotate(90deg);
+-moz-transform: rotate(90deg);
+-o-transform: rotate(90deg);
+-ms-transform: rotate(90deg);
+transform: rotate(90deg);
+display: inline-block;
+height: 200px;
+}
+
+
+

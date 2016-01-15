@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer type="Flex" version="1.02" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <Databases isList="true" count="1">
+      <iurok_cn Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" isKey="true">
+        <Alias>iurok_cn</Alias>
+        <ConnectionStringEncrypted>w2zRa2JcUc1hWqW9Yj0lP4vU86jGU0OZ4Vz9+EoAZSOLbM2J51dLvOJEsPTpHOBG0dBpCUg=</ConnectionStringEncrypted>
+        <Name>iurok_cn</Name>
+      </iurok_cn>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <UrokCur Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource" isKey="true">
+        <Alias>UrokCur</Alias>
+        <Columns isList="true" count="10">
+          <value>datecreated,System.DateTime</value>
+          <value>subject,System.String</value>
+          <value>classnum,System.String</value>
+          <value>town,System.String</value>
+          <value>iu_urok_def_processtype,System.String</value>
+          <value>iu_urok_def_topstage,System.String</value>
+          <value>iu_urok_def_iu_urok_stage,System.String</value>
+          <value>iu_urok_def_ckksn,System.String</value>
+          <value>teacher,System.String</value>
+          <value>curator,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>UrokCur</Name>
+        <NameInSource>iurok_cn</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>select * from v_rptsubjcur where  iu_urok_defid in ( select theprocess from iu_task where  b2g(doer) like '%{usr}%' and   createdate&gt;=str_to_date('{dfrom}','%Y-%m-%d %H:%i:%s')  and  createdate&lt;=str_to_date('{dto}','%Y-%m-%d %H:%i:%s') )
+ and iu_urok_def_topstage like '%{topstage}%'  and town like '%{town}%'
+  and iu_urok_def_subject_id like '%{subj}%'</SqlCommand>
+      </UrokCur>
+    </DataSources>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="7">
+      <value>,p1,p1,System.String,,False,False</value>
+      <value>,dfrom,dfrom,System.String,,False,False</value>
+      <value>,dto,dto,System.String,,False,False</value>
+      <value>,usr,usr,System.String,,False,False</value>
+      <value>,town,town,System.String,,False,False</value>
+      <value>,topstage,topstage,System.String,,False,False</value>
+      <value>,subj,subj,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="1">
+        <ReportTitleBand1 Ref="5" type="ReportTitleBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,2.4</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,27.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,16</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>Уроки по  предметам, городам и этапам</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.8,27.6,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{p1}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <CrossTab1 Ref="8" type="Stimulsoft.Report.CrossTab.StiCrossTab" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,2.2,19.2,4.6</ClientRectangle>
+              <Components isList="true" count="14">
+                <CrossTab1_RowTotal1 Ref="9" type="CrossRowTotal" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>[255:255:255]</Brush>
+                  <ClientRectangle>0,3.1,10.6,0.6</ClientRectangle>
+                  <Conditions isList="true" count="0"/>
+                  <Font>Arial,10,Bold</Font>
+                  <Guid>5a459e44bbfe3e6a1ca8a0cdaf0aac38</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_RowTotal1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Всего</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </CrossTab1_RowTotal1>
+                <CrossTab1_Row1_Title Ref="10" type="CrossTitle" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>0,0.65,4,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>d81290d9646c699098aaa0cdaf0ba129</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <MinSize>4, 0</MinSize>
+                  <Name>CrossTab1_Row1_Title</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Предмет</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <TypeOfComponent>Row:CrossTab1_Row1</TypeOfComponent>
+                </CrossTab1_Row1_Title>
+                <CrossTab1_LeftTitle Ref="11" type="CrossTitle" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>0,0,10.6,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>4b3c7463668e64ac5276a0cdaf0ccdc7</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <MinSize>5, 0</MinSize>
+                  <Name>CrossTab1_LeftTitle</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Уроки</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <TypeOfComponent>LeftTitle</TypeOfComponent>
+                </CrossTab1_LeftTitle>
+                <CrossTab1_RowTotal2 Ref="12" type="CrossRowTotal" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>[255:255:255]</Brush>
+                  <ClientRectangle>4,2.5,6.6,0.6</ClientRectangle>
+                  <Conditions isList="true" count="0"/>
+                  <Font>Arial,10,Underline</Font>
+                  <Guid>5e1cf04d9ddd83ad4d0da0cdb74c572a</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_RowTotal2</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Итого</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </CrossTab1_RowTotal2>
+                <CrossTab1_Row2_Title Ref="13" type="CrossTitle" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>4,0.65,1.6,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>11087266ec40039e7385a0cdb74d6538</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row2_Title</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Класс</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <TypeOfComponent>Row:CrossTab1_Row2</TypeOfComponent>
+                </CrossTab1_Row2_Title>
+                <CrossTab1_ColTotal1 Ref="14" type="CrossColumnTotal" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>[255:255:255]</Brush>
+                  <ClientRectangle>14.05,0.65,3,0.6</ClientRectangle>
+                  <Conditions isList="true" count="0"/>
+                  <Font>Arial,10</Font>
+                  <Guid>47a4d41d210840a1e86fa0cd75ff62dd</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <MinSize>3, 0</MinSize>
+                  <Name>CrossTab1_ColTotal1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Итого</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </CrossTab1_ColTotal1>
+                <CrossTab1_RowTotal3 Ref="15" type="CrossRowTotal" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>[255:255:255]</Brush>
+                  <ClientRectangle>5.6,1.9,5,0.6</ClientRectangle>
+                  <Conditions isList="true" count="0"/>
+                  <Font>Arial,10</Font>
+                  <Guid>ab2ccf8ff053094ba9afa6f3a03a5378</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_RowTotal3</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Итого</Text>
+                  <TextBrush>Black</TextBrush>
+                </CrossTab1_RowTotal3>
+                <CrossTab1_Row3_Title Ref="16" type="CrossTitle" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>5.6,0.65,5,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>05a4470dbb2425751dfba6f3a03dca9e</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row3_Title</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Город</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <TypeOfComponent>Row:CrossTab1_Row3</TypeOfComponent>
+                </CrossTab1_Row3_Title>
+                <CrossTab1_Row1 Ref="17" type="CrossRow" isKey="true">
+                  <Alias>subject</Alias>
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>0,1.3,4,1.8</ClientRectangle>
+                  <Conditions isList="true" count="0"/>
+                  <DisplayValue>{UrokCur.subject}</DisplayValue>
+                  <Font>Arial,10</Font>
+                  <Guid>fc42130777d4464947fba0cdaf07ab2c</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <MinSize>4, 0</MinSize>
+                  <Name>CrossTab1_Row1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>subject</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <TotalGuid>5a459e44bbfe3e6a1ca8a0cdaf0aac38</TotalGuid>
+                  <Value>{UrokCur.subject}</Value>
+                </CrossTab1_Row1>
+                <CrossTab1_Row2 Ref="18" type="CrossRow" isKey="true">
+                  <Alias>classnum</Alias>
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>4,1.3,1.6,1.2</ClientRectangle>
+                  <Conditions isList="true" count="0"/>
+                  <DisplayValue>{UrokCur.classnum}</DisplayValue>
+                  <Font>Arial,10</Font>
+                  <Guid>d232138fde36b8836fcaa0cdb7468bfe</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row2</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>classnum</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <TotalGuid>5e1cf04d9ddd83ad4d0da0cdb74c572a</TotalGuid>
+                  <Value>{UrokCur.classnum}</Value>
+                </CrossTab1_Row2>
+                <CrossTab1_Row3 Ref="19" type="CrossRow" isKey="true">
+                  <Alias>town</Alias>
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>5.6,1.3,5,0.6</ClientRectangle>
+                  <Conditions isList="true" count="0"/>
+                  <DisplayValue>{UrokCur.town}</DisplayValue>
+                  <Font>Arial,10</Font>
+                  <Guid>54761181b47289f57580a6f3a0307fa4</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Row3</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>town</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <TotalGuid>ab2ccf8ff053094ba9afa6f3a03a5378</TotalGuid>
+                  <Value>{UrokCur.town}</Value>
+                </CrossTab1_Row3>
+                <CrossTab1_Column1 Ref="20" type="CrossColumn" isKey="true">
+                  <Alias>iu_urok_def_topstage</Alias>
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>10.65,0.65,3.4,0.6</ClientRectangle>
+                  <Conditions isList="true" count="0"/>
+                  <DisplayValue>{UrokCur.iu_urok_def_topstage}</DisplayValue>
+                  <Font>Arial,10</Font>
+                  <Guid>95a15daa00615f961380a0cd75e11ba9</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <MinSize>2.5, 0</MinSize>
+                  <Name>CrossTab1_Column1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>iu_urok_def_topstage</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <TotalGuid>47a4d41d210840a1e86fa0cd75ff62dd</TotalGuid>
+                  <Value>{UrokCur.iu_urok_def_topstage}</Value>
+                </CrossTab1_Column1>
+                <CrossTab1_Sum1 Ref="21" type="CrossSummary" isKey="true">
+                  <Alias>datecreated</Alias>
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>[255:255:255]</Brush>
+                  <ClientRectangle>10.65,1.3,3.4,0.6</ClientRectangle>
+                  <Conditions isList="true" count="0"/>
+                  <Font>Arial,10</Font>
+                  <Guid>bb743ea3d2237320f27aa0d1f434ffbd</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_Sum1</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Summary>Count</Summary>
+                  <SummaryValues>SkipNulls</SummaryValues>
+                  <Text>0</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Value>{UrokCur.datecreated}</Value>
+                </CrossTab1_Sum1>
+                <CrossTab1_RightTitle Ref="22" type="CrossTitle" isKey="true">
+                  <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+                  <Brush>White</Brush>
+                  <ClientRectangle>10.65,0,6.4,0.6</ClientRectangle>
+                  <Font>Arial,10</Font>
+                  <Guid>f30f06496dcf87004713a6f3a03d3b8e</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>CrossTab1_RightTitle</Name>
+                  <Page isRef="4"/>
+                  <Parent isRef="8"/>
+                  <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+                  <Text>Этап производства</Text>
+                  <TextBrush>[105:105:105]</TextBrush>
+                  <Type>Expression</Type>
+                  <TypeOfComponent>RightTitle</TypeOfComponent>
+                </CrossTab1_RightTitle>
+              </Components>
+              <Conditions isList="true" count="0"/>
+              <DataRelationName/>
+              <DataSourceName>UrokCur</DataSourceName>
+              <EmptyValue/>
+              <Filters isList="true" count="0"/>
+              <Name>CrossTab1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Sort isList="true" count="0"/>
+            </CrossTab1>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </ReportTitleBand1>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>4c7a97d9e232a36d04d3876dc5282687</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0"/>
+      <Watermark Ref="23" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="24" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true"/>
+  <ReportAlias>Отчет</ReportAlias>
+  <ReportChanged>10/27/2014 03:35:42 PM</ReportChanged>
+  <ReportCreated>07/30/2014 05:20:23 PM</ReportCreated>
+  <ReportFile>C:\bami\Projects\iUROK\WEB\console\reports\reports\UrokTown.mrt</ReportFile>
+  <ReportGuid>7b2bd5c3c0ad95b66080519ad8dcca49</ReportGuid>
+  <ReportName>Отчет</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2014.1.1900</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>

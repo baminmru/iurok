@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>My test</title>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="leaflet.css">
+	<!--[if lte IE 8]><link rel="stylesheet" href="leaflet.ie.css" /><![endif]-->
+</head>
+<body>
+	<div tabindex="0" class="leaflet-container leaflet-fade-anim" id="map" 
+	style="width: 1024px; height: 800px; position: relative;">
+	<script src="leaflet.js"></script>
+	<script>
+	var map = new L.Map('map', {center: new L.LatLng(59.5, 31), zoom:7, zoomAnimation: false });
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
+	var p = [];
+	var m=[];
+	var line=[];
+	for(i=0;i<=100;i++){
+		var lat =57 +Math.random()*4;
+		var lon =27 +Math.random()*8;
+		p.push(new L.LatLng(lat,lon));
+	}
+
+		var LeafIcon = L.Icon.extend({
+			options: {
+				
+				iconSize:     [16, 16],
+				iconAnchor:   [8, 8],
+				popupAnchor:  [-16, -16]
+			}
+		});
+
+		var greenIcon = new LeafIcon({iconUrl: './images/computer.png'}),
+			redIcon = new LeafIcon({iconUrl: './images/computer_off.png'}),
+			orangeIcon = new LeafIcon({iconUrl: './images/computer_key.png'});
+		
+		for(i=0;i<=100;i++){
+			m.push(L.marker(p[i], {icon: greenIcon}).bindPopup("Узел "+i).addTo(map));
+		}
+		for(i=0;i<100;i++){
+			line.push(L.polyline([p[i],p[i+1]], {color: 'red'}).addTo(map));
+		}
+		
+		
+		var phase=0;
+		setInterval(
+		function(){
+		
+			for(i=0;i<=20;i++){
+				var ico =Math.floor(Math.random()*3);
+				var clr =Math.floor(Math.random()*3);
+				var idx =Math.floor(Math.random()*101);
+				var lidx =Math.floor(Math.random()*100);
+				if(ico==0){
+					m[idx].setIcon(redIcon);
+				}
+				if(ico==1){
+					m[idx].setIcon(orangeIcon);
+				}
+				if(ico==2){
+					m[idx].setIcon(greenIcon);
+				}
+				
+				if(clr==0){
+					line[lidx].setStyle({color: 'green'});
+				}
+				if(clr==1){
+						line[lidx].setStyle({color: 'yellow'});
+				}
+				if(clr==2){
+						line[lidx].setStyle({color: 'red'});
+				}
+				
+	
+			}
+			
+		},1000)
+	</script>
+
+
+</body></html>

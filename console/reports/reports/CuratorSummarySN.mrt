@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" application="StiReport" type="Flex">
+  <Dictionary isKey="true" type="Dictionary" Ref="1">
+    <Databases isList="true" count="1">
+      <iurok_cn isKey="true" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" Ref="2">
+        <Alias>iurok_cn</Alias>
+        <ConnectionStringEncrypted>w2zRa0VccZniWqWYZFxiP4vIZSjGV5uZ4Uf9+EoAYmeGxNnpZkhzvGtJqORNROFewlZlyw==</ConnectionStringEncrypted>
+        <Name>iurok_cn</Name>
+      </iurok_cn>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <DataSource1 isKey="true" type="Stimulsoft.Report.Dictionary.StiMySqlSource" Ref="3">
+        <Alias>DataSource1</Alias>
+        <Columns isList="true" count="3">
+          <value>cnt,System.Int32</value>
+          <value>iu_urok_def_curator,System.String</value>
+          <value>iu_urok_def_laststate,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>DataSource1</Name>
+        <NameInSource>iurok_cn</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>select  count(*) cnt ,iu_urok_def_curator,iu_urok_def_laststate from v_autoiu_urok_def   where iu_urok_def_datecreated&gt;=str_to_date('{dfrom}','%Y-%m-%d %H:%i:%s')and iu_urok_def_datecreated&lt;=str_to_date('{dto}','%Y-%m-%d %H:%i:%s')           group by iu_urok_def_curator,iu_urok_def_laststate</SqlCommand>
+      </DataSource1>
+    </DataSources>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="3">
+      <value>,p1,p1,System.String,,False,False</value>
+      <value>,dfrom,dfrom,System.String,,False,False</value>
+      <value>,dto,dto,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="1">
+    <Page1 isKey="true" type="Page" Ref="4">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="5">
+        <ReportTitleBand1 isKey="true" type="ReportTitleBand" Ref="5">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text1 isKey="true" type="Text" Ref="6">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.2,18.2,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,16</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>Уроки по кураторам и статусам</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text11 isKey="true" type="Text" Ref="7">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,1.2,18.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{p1}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </ReportTitleBand1>
+        <GroupHeaderBand1 isKey="true" type="GroupHeaderBand" Ref="8">
+          <Brush>Transparent</Brush>
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,3.2,19,2</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text3 isKey="true" type="Text" Ref="9">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>0.2,0.2,18.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="8"/>
+              <Text>{DataSource1.iu_urok_def_curator}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text3>
+            <Text6 isKey="true" type="Text" Ref="10">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,1,11,0.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,14,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4"/>
+              <Parent isRef="8"/>
+              <Text>Статус урока</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text6>
+            <Text7 isKey="true" type="Text" Ref="11">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,1,4.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4"/>
+              <Parent isRef="8"/>
+              <Text>Количество</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text7>
+            <HorizontalLinePrimitive2 isKey="true" type="HorizontalLinePrimitive" Ref="12">
+              <ClientRectangle>0.6,0.8,18.4,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions isList="true" count="0"/>
+              <EndCap isKey="true" type="Cap" Ref="13">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="8"/>
+              <StartCap isKey="true" type="Cap" Ref="14">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive2>
+          </Components>
+          <Condition>{DataSource1.iu_urok_def_curator}</Condition>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupHeaderBand1>
+        <DataBand1 isKey="true" type="DataBand" Ref="15">
+          <Brush>Transparent</Brush>
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,6,19,0.8</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text2 isKey="true" type="Text" Ref="16">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>2,0,11,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="15"/>
+              <Text>{DataSource1.iu_urok_def_laststate}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text2>
+            <Text4 isKey="true" type="Text" Ref="17">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>13.8,0,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="15"/>
+              <Text>{DataSource1.cnt}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text4>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <DataSourceName>DataSource1</DataSourceName>
+          <Filters isList="true" count="0"/>
+          <Name>DataBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Sort isList="true" count="0"/>
+        </DataBand1>
+        <GroupFooterBand1 isKey="true" type="GroupFooterBand" Ref="18">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7.6,19,0.8</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text5 isKey="true" type="Text" Ref="19">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,0,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10,Bold|Underline</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4"/>
+              <Parent isRef="18"/>
+              <Text>Итого</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text5>
+            <Text10 isKey="true" type="Text" Ref="20">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,0,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10,Bold|Underline</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4"/>
+              <Parent isRef="18"/>
+              <Text>{SumI(DataSource1.cnt)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text10>
+            <Text13 isKey="true" type="Text" Ref="21">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>3.4,0,10.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10,Underline</Font>
+              <Guid>3524b0d1efa1956a4dbba6ece9f731db</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4"/>
+              <Parent isRef="18"/>
+              <Text>{DataSource1.iu_urok_def_curator}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text13>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>GroupFooterBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </GroupFooterBand1>
+        <ReportSummaryBand1 isKey="true" type="ReportSummaryBand" Ref="22">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,9.2,19,1.6</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text8 isKey="true" type="Text" Ref="23">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.4,12.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,12,Underline</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4"/>
+              <Parent isRef="22"/>
+              <Text>Всего</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+            <Text9 isKey="true" type="Text" Ref="24">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,0.4,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10,Underline</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4"/>
+              <Parent isRef="22"/>
+              <Text>{SumI(DataSource1.cnt)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text9>
+            <HorizontalLinePrimitive1 isKey="true" type="HorizontalLinePrimitive" Ref="25">
+              <ClientRectangle>0.6,0.2,18.4,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions isList="true" count="0"/>
+              <EndCap isKey="true" type="Cap" Ref="26">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="22"/>
+              <StartCap isKey="true" type="Cap" Ref="27">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportSummaryBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </ReportSummaryBand1>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>e9cefe51136ed91659abb4782a54184b</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" type="Stimulsoft.Report.Components.StiWatermark" Ref="28">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings isKey="true" type="Stimulsoft.Report.Print.StiPrinterSettings" Ref="29"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>08/05/2014 08:07:10 PM</ReportChanged>
+  <ReportCreated>06/19/2014 06:11:52 PM</ReportCreated>
+  <ReportFile>C:\bami\Projects\iUROK\WEB\console\reports\reports\CuratorSummarySN.mrt</ReportFile>
+  <ReportGuid>20be66df022d7664f7f9a6ec9c6654b8</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2014.1.1900</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>

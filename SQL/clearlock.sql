@@ -1,0 +1,1 @@
+update instance set locksessionid = null , lockuserid=null;

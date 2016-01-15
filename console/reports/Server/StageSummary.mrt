@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" application="StiReport" type="Flex">
+  <Dictionary isKey="true" type="Dictionary" Ref="1">
+    <Databases isList="true" count="1">
+      <iurok_cn isKey="true" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" Ref="2">
+        <Alias>iurok_cn</Alias>
+        <ConnectionStringEncrypted>w2zRa0VccZniWqWYZFxiP4vIZSjGV5uZ4Uf9+EoAYmeGxNnpZkhzvGtJqORNROFewlZlyw==</ConnectionStringEncrypted>
+        <Name>iurok_cn</Name>
+      </iurok_cn>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <DataSource1 isKey="true" type="Stimulsoft.Report.Dictionary.StiMySqlSource" Ref="3">
+        <Alias>DataSource1</Alias>
+        <Columns isList="true" count="2">
+          <value>cnt,System.Int32</value>
+          <value>iu_urok_def_topstage,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>DataSource1</Name>
+        <NameInSource>iurok_cn</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>select count(*) cnt ,iu_urok_def_topstage from v_autoiu_urok_def where iu_urok_def_datecreated&gt;=str_to_date('{dfrom}','%Y-%m-%d %H:%i:%s')and iu_urok_def_datecreated&lt;=str_to_date('{dto}','%Y-%m-%d %H:%i:%s')  group by iu_urok_def_topstage</SqlCommand>
+      </DataSource1>
+    </DataSources>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="3">
+      <value>,p1,p1,p1,System.String,,False,False,False</value>
+      <value>,dfrom,dfrom,System.String,,False,False</value>
+      <value>,dto,dto,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="1">
+    <Page1 isKey="true" type="Page" Ref="4">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="6">
+        <ReportTitleBand1 isKey="true" type="ReportTitleBand" Ref="5">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text1 isKey="true" type="Text" Ref="6">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.2,18.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,16</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>Количество уроков по этапам</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text3 isKey="true" type="Text" Ref="7">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,1.2,18.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{p1}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </ReportTitleBand1>
+        <HeaderBand1 isKey="true" type="HeaderBand" Ref="8">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.2,19,1.2</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text6 isKey="true" type="Text" Ref="9">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.2,12.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,14,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4"/>
+              <Parent isRef="8"/>
+              <Text>Этап</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text6>
+            <Text7 isKey="true" type="Text" Ref="10">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.6,0.2,4.6,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4"/>
+              <Parent isRef="8"/>
+              <Text>Количество</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text7>
+            <StartPointPrimitive1 isKey="true" type="Stimulsoft.Report.Components.StiStartPointPrimitive" Ref="11">
+              <ClientRectangle>0.2,0.2,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>StartPointPrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="8"/>
+              <ReferenceToGuid>ace76525377cc7db33b6b486beed1de4</ReferenceToGuid>
+            </StartPointPrimitive1>
+            <StartPointPrimitive2 isKey="true" type="Stimulsoft.Report.Components.StiStartPointPrimitive" Ref="12">
+              <ClientRectangle>13.4,0.2,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>StartPointPrimitive2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="8"/>
+              <ReferenceToGuid>06f6ce242d47b506d7fcb486ec8cf68f</ReferenceToGuid>
+            </StartPointPrimitive2>
+            <HorizontalLinePrimitive2 isKey="true" type="HorizontalLinePrimitive" Ref="13">
+              <ClientRectangle>0.2,1,18.4,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions isList="true" count="0"/>
+              <EndCap isKey="true" type="Cap" Ref="14">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="8"/>
+              <StartCap isKey="true" type="Cap" Ref="15">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive2>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>HeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </HeaderBand1>
+        <DataBand1 isKey="true" type="DataBand" Ref="16">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.2,19,0.8</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text2 isKey="true" type="Text" Ref="17">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0,12.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="16"/>
+              <Text>{DataSource1.iu_urok_def_topstage}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text2>
+            <Text4 isKey="true" type="Text" Ref="18">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,0,4.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="16"/>
+              <Text>{DataSource1.cnt}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text4>
+            <HorizontalLinePrimitive1 isKey="true" type="HorizontalLinePrimitive" Ref="19">
+              <ClientRectangle>0.2,0.6,18.4,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions isList="true" count="0"/>
+              <EndCap isKey="true" type="Cap" Ref="20">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="16"/>
+              <StartCap isKey="true" type="Cap" Ref="21">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <DataSourceName>DataSource1</DataSourceName>
+          <Filters isList="true" count="0"/>
+          <Name>DataBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Sort isList="true" count="0"/>
+        </DataBand1>
+        <ReportSummaryBand1 isKey="true" type="ReportSummaryBand" Ref="22">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6.8,19,1.6</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text8 isKey="true" type="Text" Ref="23">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.4,12.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,12,Underline</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4"/>
+              <Parent isRef="22"/>
+              <Text>Всего</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+            <Text9 isKey="true" type="Text" Ref="24">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,0.4,4.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10,Underline</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4"/>
+              <Parent isRef="22"/>
+              <Text>{SumI(DataSource1.cnt)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text9>
+            <EndPointPrimitive1 isKey="true" type="Stimulsoft.Report.Components.StiEndPointPrimitive" Ref="25">
+              <ClientRectangle>13.4,1.2,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>EndPointPrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="22"/>
+              <ReferenceToGuid>ace76525377cc7db33b6b486beed1de4</ReferenceToGuid>
+            </EndPointPrimitive1>
+            <EndPointPrimitive2 isKey="true" type="Stimulsoft.Report.Components.StiEndPointPrimitive" Ref="26">
+              <ClientRectangle>18.6,1.2,0,0</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Name>EndPointPrimitive2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="22"/>
+              <ReferenceToGuid>06f6ce242d47b506d7fcb486ec8cf68f</ReferenceToGuid>
+            </EndPointPrimitive2>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportSummaryBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </ReportSummaryBand1>
+        <RectanglePrimitive1 isKey="true" type="RectanglePrimitive" Ref="27">
+          <ClientRectangle>0.2,3.4,13.2,4.6</ClientRectangle>
+          <Color>Black</Color>
+          <Conditions isList="true" count="0"/>
+          <Guid>ace76525377cc7db33b6b486beed1de4</Guid>
+          <Name>RectanglePrimitive1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </RectanglePrimitive1>
+        <RectanglePrimitive2 isKey="true" type="RectanglePrimitive" Ref="28">
+          <ClientRectangle>13.4,3.4,5.2,4.6</ClientRectangle>
+          <Color>Black</Color>
+          <Conditions isList="true" count="0"/>
+          <Guid>06f6ce242d47b506d7fcb486ec8cf68f</Guid>
+          <Name>RectanglePrimitive2</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </RectanglePrimitive2>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>e9cefe51136ed91659abb4782a54184b</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" type="Stimulsoft.Report.Components.StiWatermark" Ref="29">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings isKey="true" type="Stimulsoft.Report.Print.StiPrinterSettings" Ref="30"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>08/05/2014 08:02:39 PM</ReportChanged>
+  <ReportCreated>06/19/2014 06:11:52 PM</ReportCreated>
+  <ReportFile>C:\bami\Projects\iUROK\WEB\console\reports\reports\StageSummary.mrt</ReportFile>
+  <ReportGuid>9c0715d8f5a865c44d27a6e87a2d4b9c</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2014.1.1900</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>

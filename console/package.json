@@ -1,0 +1,13 @@
+{
+  "name": "iurok",
+  "main": "index.htm",
+  "window": {
+    "toolbar": false,
+    "resizable": true,
+    "width": 1024,
+    "height": 760
+  },
+  "scripts": {
+    "start": "nw ."
+  }
+}

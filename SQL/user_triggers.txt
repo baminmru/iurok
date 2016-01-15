@@ -1,0 +1,59 @@
+delimiter $$
+
+
+-- select * from iu_u_def
+
+
+drop trigger busr_def_inserted
+$$
+CREATE TRIGGER busr_def_inserted AFTER INSERT ON busr_def FOR EACH ROW
+begin
+    declare existsCnt  integer;
+    declare ID  binary(16);
+    if new.loginname<>'' then
+        select count(*) into existsCnt from users where login=new.loginname;
+        if existsCnt = 0 then
+         select instanceid into id from instance where objtype='MTZUsers';
+         insert into users
+         (changestamp,instanceid,usersid,family,name,surname, login,password) 
+         values 
+         (sysdate(),id,g2b(UUID()),new.lastname,new.firstname,new.patronymic,new.loginname,md5(new.loginname));
+        end if;
+    end if;
+
+end
+$$
+drop trigger busr_def_updated
+$$
+
+
+CREATE
+TRIGGER `busr_def_updated`
+AFTER UPDATE ON `busr_def`
+FOR EACH ROW
+begin
+    declare existsCnt  integer;
+    declare ID  binary(16);
+    if new.loginname<>'' then
+        select count(*) into existsCnt from users where login=new.loginname;
+        if existsCnt = 0 then
+         select instanceid into id from instance where objtype='MTZUsers';
+         insert into users
+         (changestamp,instanceid,usersid,family,name,surname, login,password) 
+         values 
+         (sysdate(),id,g2b(UUID()),new.lastname,new.firstname,new.patronymic,new.loginname,md5(new.loginname));
+        else
+            update users set family=new.lastname,name=new.firstname,surname=new.patronymic where login=new.loginname;
+        end if;
+    end if;
+    
+    if new.mobile1 <> old.mobile1 then
+        update b2s_info set webpone=new.mobile1,webcontact=concat(new.lastname,' ',new.firstname),thedept=new.thedept where b2s_info.instanceid in (select instanceid from b2s_agents where theagent=new.busr_defid);
+        update b2p_info set webpone=new.mobile1,webcontact=concat(new.lastname,' ',new.firstname),thedept=new.thedept where b2p_info.instanceid in (select instanceid from b2p_agents where theagent=new.busr_defid);
+        update b2z_info set webpone=new.mobile1,webcontact=concat(new.lastname,' ',new.firstname),thedept=new.thedept where b2z_info.instanceid in (select instanceid from b2z_agents where theagent=new.busr_defid);
+        update b2c_info set webpone=new.mobile1,webcontact=concat(new.lastname,' ',new.firstname),thedept=new.thedept where b2c_info.instanceid in (select instanceid from b2c_agents where theagent=new.busr_defid);
+        update b2fr_info set webpone=new.mobile1,webcontact=concat(new.lastname,' ',new.firstname),thedept=new.thedept where b2fr_info.instanceid in (select instanceid from b2fr_agents where theagent=new.busr_defid);
+        update b2r_info set webpone=new.mobile1,webcontact=concat(new.lastname,' ',new.firstname),thedept=new.thedept where b2r_info.instanceid in (select instanceid from b2r_agents where theagent=new.busr_defid);
+    end if;
+
+end$$
