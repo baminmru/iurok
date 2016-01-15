@@ -8,11 +8,11 @@
 	//require_once("database_pg.php");
 	//require_once("database_oracle.php");
 	//require_once("database_xml.php");
-	require_once("handler.php");
-	require_once("class.phpmailer.php");
-	require_once("class.pop3.php");
-	require_once("class.smtp.php");
-	require_once("PHPMailerAutoload.php");
+	//require_once("handler.php");
+	//require_once("class.phpmailer.php");
+	//require_once("class.pop3.php");
+	//require_once("class.smtp.php");
+	//require_once("PHPMailerAutoload.php");
 
 
 	$enable_compression = true;
